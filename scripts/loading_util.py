@@ -16,14 +16,20 @@ def with_loading(task_function, *args, message="Loading", **kwargs):
     stop_event = threading.Event()
 
     def loading_animation():
-        chars = "|/-\\"
-        idx = 0
+        
+        width = 20
         while not stop_event.is_set():
-            sys.stdout.write(f"\r{message}... {chars[idx % len(chars)]}")
+            for i in range(width + 1):
+                if stop_event.is_set():
+                    break
+
+            progress = "=" * i + ">" + " " * (width - i)
+            sys.stdout.write(f"\r{message} [{progress}] {i * 5}%")
             sys.stdout.flush()
-            idx += 1
             time.sleep(0.1)
-        sys.stdout.write("\rDone!            \n")
+
+        sys.stdout.write("\r" + " " * (len(message) + width + 10) + "\r")  # Limpa a linha
+        sys.stdout.write(f"\r✔ {message} concluído!\n")
 
     thread = threading.Thread(target=loading_animation)
     thread.start()
@@ -35,4 +41,4 @@ def with_loading(task_function, *args, message="Loading", **kwargs):
         stop_event.set()
         thread.join()
 
-    return result
+    return result  

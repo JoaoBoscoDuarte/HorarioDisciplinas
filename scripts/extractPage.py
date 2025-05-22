@@ -21,20 +21,19 @@ class ExtractPage:
 
 
     def main(self):
-        """ _____________________________________________________________  
-            Refer to the project documentation if you have any questions. 
-            In case of an error, please report it.
-            Created by João Bosco | Last updated: 05/21/2025 """
+
+        # Refer to the project documentation if you have any questions. 
+        # In case of an error, please report it.
+        # Created by João Bosco | Last updated: 05/21/2025 
 
         with_loading(self.driver.get, self.URL, message="Opening the page") # Open the page
         
         with_loading(self.fillYear, message="Filling year field")            # Fill year field
         with_loading(self.fillPeriod, message="Filling period field")        # Fill period field
         with_loading(self.runButton, message="Clicking search button")       # Click search button
-        with_loading(self.wait_for_results, message="Waiting for results")   # Save the page HTML
-
-        with_loading(self.saveInHtml, message="Saving HTML")                 # Close the browser
-        self.driver.quit()       
+        with_loading(self.wait_for_results, message="Waiting for results")   
+        with_loading(self.saveInHtml, message="Saving HTML")                 # Save the page HTML
+        self.driver.quit()                                                   # Close the browser
 
     # Fill the year field
     def fillYear(self):
