@@ -19,15 +19,13 @@ class ExtractPage:
         self.driver = webdriver.Firefox(options=options)
         self.wait = WebDriverWait(self.driver, 10)
 
-
     def main(self):
 
         # Refer to the project documentation if you have any questions. 
         # In case of an error, please report it.
         # Created by João Bosco | Last updated: 05/21/2025 
 
-        with_loading(self.driver.get, self.URL, message="Opening the page") # Open the page
-        
+        with_loading(self.driver.get, self.URL, message="Opening the page")  # Open the page
         with_loading(self.fillYear, message="Filling year field")            # Fill year field
         with_loading(self.fillPeriod, message="Filling period field")        # Fill period field
         with_loading(self.runButton, message="Clicking search button")       # Click search button
