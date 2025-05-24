@@ -20,5 +20,7 @@ def main():
     extractor.extract()
     print("Extração fincalizad com sucesso")
 
+    
+
 if __name__ == "__main__":
     main()
