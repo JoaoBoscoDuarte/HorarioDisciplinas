@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
 
 class SIGAAExtractor(PageExtractor):
-    def __init__(self, year, period, url):
+    def __init__(self, year: int, period: int, url: stg):
         super().__init__(year, period, url)
 
         # No window
@@ -19,45 +19,45 @@ class SIGAAExtractor(PageExtractor):
         self.wait = WebDriverWait(self.driver, 10)
 
     # Execute
-    def extract(self):
+    def extract(self) --> None:
         print("Opening the page...")         # Open the page
-        self.openPage()
+        self.open_page()
 
         print("Filling year field...")       # Fill year field
-        self.fillYear()
+        self.fill_year()
 
         print("Filling period field...")     # Fill period field
-        self.fillPeriod()
+        self.fill_period()
 
         print("Clicking search button...")   # Click search button
-        self.runButton()
+        self.run_button()
 
         print("Saving HTML...")              # Save the page HTML
-        self.saveInHtml()
+        self.save_html()
 
         self.driver.quit()                   # Close the browser
         print("Done.")
 
-    def openPage(self):
+    def open_page(self) --> None:
         self.driver.get(self.url)                                        
 
     # Fill the year field
-    def fillYear(self):
+    def fill_year (self) --> None:
         year_input = self.driver.find_element(By.ID, "form:inputAno")
         year_input.clear()
         year_input.send_keys(self.year)
 
     # Fill the period field
-    def fillPeriod(self):
+    def fill_period(self) --> None:
         period_select = Select(self.driver.find_element(By.ID, "form:inputPeriodo"))
         period_select.select_by_value(self.period)
 
     # Click the "Buscar" button
-    def runButton(self):
-        buscar_button = self.driver.find_element(By.XPATH, '//input[@value="Buscar"]')
-        buscar_button.click()
+    def run_button(self) --> None:
+        search_button = self.driver.find_element(By.XPATH, '//input[@value="Buscar"]')
+        serach_button.click()
 
     # Save the full HTML of the page
-    def saveInHtml(self):
+    def save_html(self) --> None:
         saver = HtmlSaver()
         saver.save(self.driver.page_source)
