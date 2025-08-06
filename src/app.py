@@ -1,4 +1,4 @@
-from SIGAAExtractor import SIGAAExtractor
+from sigaaExtractor import SigaaExtractor
 
 def main():
     cursos = {
@@ -16,9 +16,9 @@ def main():
         print("Curso não encontrado")
         return
     
-    extractor =  SIGAAExtractor(year, period, url)
+    extractor =  SigaaExtractor(year, period, url)
     extractor.extract()
-    print("Extração fincalizad com sucesso")
+    print("Extração finalizada com sucesso")
 
     
 

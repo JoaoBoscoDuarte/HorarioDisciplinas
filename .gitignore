@@ -1,6 +1,7 @@
 __pycache__/
 venv/
 data
+data/pagina.html
 *.pyc
 *.pyo
 *.pyd
