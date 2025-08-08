@@ -14,3 +14,5 @@ Ao automatizar a obtenção e organização dessas informações, pretendemos fa
     - Ciência da Computação.
     - Engenharia da Computação.
     - Ciência de Dados e Inteligência Artificial.
+
+## Es
