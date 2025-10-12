@@ -1,9 +1,3 @@
-__pycache__/
-venv/
-data
-data/pagina.html
+.venv/
+**/__pycache__/
 *.pyc
-*.pyo
-*.pyd
-.DS_Store
-.env
