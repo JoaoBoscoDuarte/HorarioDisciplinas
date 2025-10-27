@@ -30,6 +30,14 @@ def run_scraping():
 
         for d in dados:
             print(f"- {d['codigo']}: {d['disciplina']} ({len(d['turmas'])} turmas)")
+            if not d["turmas"]:
+                print("  Sem turmas disponíveis.")
+                continue
+
+            for t in d["turmas"]:
+                docente = t.get("docente", "Sem docente")
+                horario = t.get("horario", "Sem horário")
+                print(f"  • Turma {t['turma']} | Professor: {docente} | Horário: {horario}")
 
     else:
         print("Arquivo HTML não encontrado para parse.")

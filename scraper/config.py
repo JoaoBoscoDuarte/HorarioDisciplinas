@@ -6,5 +6,5 @@ CURSOS_SIGAA = {
 }
 
 # Pasta onde os HTMLs serão salvos
-DATA_FOLDER = "data"
+DATA_FOLDER = "data/sigaa_raw/"
 DEFAULT_FILENAME = "pagina.html"
